@@ -3086,3 +3086,13 @@ footer {
         scroll-behavior: auto !important;
     }
 }
+
+.founder-image-caption {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.founder-image-caption::before,
+.founder-image-caption::after {
+    background: transparent !important;
+}
