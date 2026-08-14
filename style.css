@@ -3990,3 +3990,30 @@ body.intro-active {
     }
 
 }
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            360px circle
+            at
+            var(--mouse-x, 50%)
+            var(--mouse-y, 50%),
+
+            rgba(212, 175, 55, 0.045),
+
+            transparent 70%
+        );
+
+    transition:
+        background 0.08s linear;
+}
