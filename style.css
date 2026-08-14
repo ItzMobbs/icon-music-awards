@@ -763,53 +763,6 @@ body::after {
 }
 
 /* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 950px) {
-
-    .venue-showcase {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-
-        margin-top: 80px;
-    }
-
-
-    .venue-image-wrap {
-        min-height: 500px;
-    }
-
-
-    .venue-information {
-        padding: 20px 0;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .venue-image-wrap {
-        min-height: 390px;
-    }
-
-
-    .venue-image-label {
-        left: 25px;
-        bottom: 25px;
-    }
-
-
-    .venue-information h3 {
-        font-size:
-            clamp(52px, 17vw, 76px);
-    }
-
-}
-
-/* =========================================================
    HUGE YEAR
    ========================================================= */
 
