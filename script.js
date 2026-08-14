@@ -551,3 +551,73 @@ window.addEventListener(
 
 
 updateHeroParallax();
+
+/* =========================================================
+   LOCKED NOMINEES CINEMATIC
+   ========================================================= */
+
+const nomineesLocked =
+    document.querySelector(".nominees-locked-section");
+
+
+if (nomineesLocked) {
+
+    let nomineesOnScreen = false;
+
+
+    const nomineesObserver =
+        new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (
+                        entry.isIntersecting &&
+                        !nomineesOnScreen
+                    ) {
+
+                        nomineesOnScreen = true;
+
+
+                        nomineesLocked.classList.remove(
+                            "lock-visible"
+                        );
+
+
+                        void nomineesLocked.offsetWidth;
+
+
+                        nomineesLocked.classList.add(
+                            "lock-visible"
+                        );
+
+                    }
+
+
+                    if (!entry.isIntersecting) {
+
+                        nomineesOnScreen = false;
+
+                        nomineesLocked.classList.remove(
+                            "lock-visible"
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.28
+            }
+
+        );
+
+
+    nomineesObserver.observe(
+        nomineesLocked
+    );
+
+}
