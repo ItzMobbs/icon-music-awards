@@ -6151,3 +6151,7 @@ body.intro-active {
     letter-spacing: 2px;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
