@@ -6374,3 +6374,519 @@ html {
 .hero-vignette {
     z-index: 3;
 }
+
+/* =========================================================
+   ICON MUSIC AWARDS — FINAL FOOTER V3
+   ========================================================= */
+
+.ima-footer {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding:
+        100px 6% 32px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212, 175, 55, 0.055),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #030303 0%,
+            #000000 100%
+        );
+
+    border-top:
+        1px solid rgba(212, 175, 55, 0.15);
+}
+
+
+.ima-footer-glow {
+    position: absolute;
+
+    width: 900px;
+    height: 500px;
+
+    top: -380px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(212, 175, 55, 0.12);
+
+    filter:
+        blur(140px);
+
+    pointer-events: none;
+}
+
+
+.ima-footer-inner {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1450px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TOP
+   ========================================================= */
+
+.ima-footer-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 45px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* BRAND */
+
+.ima-footer-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    text-decoration: none;
+}
+
+
+.ima-footer-brand img {
+    display: block;
+
+    width: 52px !important;
+    height: 52px !important;
+
+    object-fit: contain;
+
+    opacity: 0.9;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(212, 175, 55, 0.12)
+        );
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+.ima-footer-brand:hover img {
+    transform:
+        scale(1.07)
+        rotate(-4deg);
+
+    filter:
+        drop-shadow(
+            0 0 24px
+            rgba(212, 175, 55, 0.3)
+        );
+}
+
+
+.ima-footer-brand-text span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--gold);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.ima-footer-brand-text strong {
+    display: block;
+
+    color: #d8d8d8;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+/* YEAR */
+
+.ima-footer-year {
+    padding-left: 28px;
+
+    border-left:
+        1px solid rgba(212, 175, 55, 0.18);
+
+    text-align: right;
+}
+
+
+.ima-footer-year span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #424242;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.ima-footer-year strong {
+    color: var(--gold-light);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   MASSIVE CLOSING STATEMENT
+   ========================================================= */
+
+.ima-footer-statement {
+    padding:
+        110px 0 100px;
+
+    max-width: 1200px;
+}
+
+
+.ima-footer-kicker {
+    display: block;
+
+    margin-bottom: 28px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 6px;
+}
+
+
+.ima-footer-statement h2 {
+    color: #e7e7e7;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(52px, 6vw, 100px);
+
+    font-weight: 400;
+
+    line-height: 0.92;
+
+    letter-spacing: -4px;
+}
+
+
+.ima-footer-statement h2 em {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-weight: 400;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   FOOTER NAVIGATION
+   ========================================================= */
+
+.ima-footer-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        clamp(22px, 3vw, 48px);
+
+    padding:
+        32px 0;
+
+    border-top:
+        1px solid rgba(212, 175, 55, 0.11);
+
+    border-bottom:
+        1px solid rgba(212, 175, 55, 0.11);
+}
+
+
+.ima-footer-nav a {
+    position: relative;
+
+    color: #626262 !important;
+
+    text-decoration: none !important;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    transition:
+        color 0.35s ease;
+}
+
+
+.ima-footer-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        var(--gold-light);
+
+    transition:
+        width 0.35s ease;
+}
+
+
+.ima-footer-nav a:hover {
+    color:
+        var(--gold-light) !important;
+}
+
+
+.ima-footer-nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTTOM BAR
+   ========================================================= */
+
+.ima-footer-bottom {
+    display: grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding-top: 28px;
+
+    color: #3d3d3d;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.ima-footer-bottom-center {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+}
+
+
+.ima-footer-dot {
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+}
+
+
+/* BACK TO TOP */
+
+.ima-back-top {
+    justify-self: end;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #555 !important;
+
+    text-decoration: none !important;
+
+    transition:
+        color 0.35s ease;
+}
+
+
+.ima-back-top span {
+    color: var(--gold);
+
+    font-size: 16px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.ima-back-top:hover {
+    color:
+        var(--gold-light) !important;
+}
+
+
+.ima-back-top:hover span {
+    transform:
+        translateY(-5px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .ima-footer {
+        padding:
+            75px 22px 28px;
+    }
+
+
+    .ima-footer-top {
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+
+    .ima-footer-brand img {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+
+    .ima-footer-brand-text span {
+        font-size: 6px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .ima-footer-brand-text strong {
+        font-size: 13px;
+    }
+
+
+    .ima-footer-year {
+        padding-left: 15px;
+    }
+
+
+    .ima-footer-year strong {
+        font-size: 17px;
+    }
+
+
+    .ima-footer-statement {
+        padding:
+            80px 0 75px;
+    }
+
+
+    .ima-footer-statement h2 {
+        font-size:
+            clamp(45px, 14vw, 70px);
+
+        letter-spacing: -3px;
+    }
+
+
+    .ima-footer-nav {
+        flex-wrap: wrap;
+
+        gap:
+            25px 28px;
+    }
+
+
+    .ima-footer-bottom {
+        grid-template-columns: 1fr;
+
+        text-align: left;
+
+        gap: 18px;
+
+        line-height: 1.8;
+    }
+
+
+    .ima-footer-bottom-center {
+        justify-content: flex-start;
+    }
+
+
+    .ima-back-top {
+        justify-self: start;
+    }
+
+}
