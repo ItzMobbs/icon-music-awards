@@ -1167,34 +1167,30 @@ body::after {
     top: 50%;
     left: 50%;
 
-    width: 180px;
-    height: 260px;
+    width: clamp(260px, 21vw, 390px);
+    height: clamp(380px, 31vw, 560px);
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
 
-    border-radius: 10px;
+    border-radius: 16px;
 
-    border:
-        1px solid rgba(245, 208, 111, 0.8);
+    border: 2px solid rgba(245, 208, 111, 0.85);
 
     background:
         radial-gradient(
             circle at 50% 35%,
-            #171717,
+            #1b1a16,
             #090909 65%
         );
 
     box-shadow:
-        0 25px 70px
-        rgba(0, 0, 0, 0.8),
-
-        inset 0 0 35px
-        rgba(212, 175, 55, 0.04);
+        0 35px 100px rgba(0, 0, 0, 0.9),
+        0 0 35px rgba(212, 175, 55, 0.08),
+        inset 0 0 55px rgba(212, 175, 55, 0.05);
 
     opacity: 0;
 }
@@ -1203,14 +1199,14 @@ body::after {
 /* ICON symbol on card */
 
 .casino-card img {
-    width: 82px;
+    width: 42%;
 
-    opacity: 0.75;
+    opacity: 0.85;
 
     filter:
         drop-shadow(
-            0 0 18px
-            rgba(212, 175, 55, 0.2)
+            0 0 25px
+            rgba(212, 175, 55, 0.28)
         );
 }
 
@@ -1218,19 +1214,10 @@ body::after {
 /* letter in corner */
 
 .card-corner {
-    position: absolute;
+    top: 22px;
+    left: 25px;
 
-    top: 14px;
-    left: 16px;
-
-    color: var(--gold-light);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 20px;
+    font-size: clamp(26px, 2.5vw, 42px);
 }
 
 
@@ -1241,13 +1228,12 @@ body::after {
 
     position: absolute;
 
-    right: 15px;
-    bottom: 12px;
+    right: 24px;
+    bottom: 20px;
 
-    color:
-        rgba(212, 175, 55, 0.7);
+    color: rgba(212, 175, 55, 0.75);
 
-    font-size: 18px;
+    font-size: clamp(24px, 2vw, 36px);
 }
 
 
@@ -1287,48 +1273,47 @@ body::after {
    CARDS FLY INTO CENTER
    ========================================================= */
 
-.casino-reveal.visible
+.casino-reveal.casino-playing
 .casino-card-one {
     animation:
         cardOneReveal
-        2.3s
+        4.8s
         cubic-bezier(0.16, 1, 0.3, 1)
         forwards;
 }
 
 
-.casino-reveal.visible
+.casino-reveal.casino-playing
 .casino-card-two {
     animation:
         cardTwoReveal
-        2.35s
+        4.8s
         cubic-bezier(0.16, 1, 0.3, 1)
-        0.1s
+        0.12s
         forwards;
 }
 
 
-.casino-reveal.visible
+.casino-reveal.casino-playing
 .casino-card-three {
     animation:
         cardThreeReveal
-        2.4s
+        4.8s
         cubic-bezier(0.16, 1, 0.3, 1)
-        0.2s
+        0.24s
         forwards;
 }
 
 
-.casino-reveal.visible
+.casino-reveal.casino-playing
 .casino-card-four {
     animation:
         cardFourReveal
-        2.45s
+        4.8s
         cubic-bezier(0.16, 1, 0.3, 1)
-        0.3s
+        0.36s
         forwards;
 }
-
 
 /* =========================================================
    VENUE TITLE
@@ -1531,159 +1516,46 @@ body::after {
         opacity: 0;
 
         transform:
-            translate(-400%, -260%)
-            rotate(-55deg)
-            scale(0.7);
+            translate(-420%, -280%)
+            rotate(-60deg)
+            scale(0.55);
     }
 
-
-    35% {
+    18% {
         opacity: 1;
+    }
 
+    32% {
         transform:
-            translate(-65%, -50%)
-            rotate(-8deg)
+            translate(-78%, -50%)
+            rotate(-13deg)
+            scale(1.04);
+    }
+
+    42% {
+        transform:
+            translate(-68%, -50%)
+            rotate(-9deg)
             scale(1);
     }
 
+    /* HOLD HERE */
+    72% {
+        opacity: 1;
 
-    55% {
         transform:
-            translate(-50%, -50%)
-            rotate(-3deg);
+            translate(-68%, -50%)
+            rotate(-9deg)
+            scale(1);
     }
-
 
     100% {
         opacity: 0;
 
         transform:
-            translate(-370%, -110%)
-            rotate(-38deg)
-            scale(0.85);
-    }
-
-}
-
-
-@keyframes cardTwoReveal {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(250%, -280%)
-            rotate(45deg)
-            scale(0.7);
-    }
-
-
-    35% {
-        opacity: 1;
-
-        transform:
-            translate(-35%, -50%)
-            rotate(7deg)
-            scale(1);
-    }
-
-
-    55% {
-        transform:
-            translate(-50%, -50%)
-            rotate(3deg);
-    }
-
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(290%, -100%)
-            rotate(35deg)
-            scale(0.85);
-    }
-
-}
-
-
-@keyframes cardThreeReveal {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(-390%, 220%)
-            rotate(55deg)
-            scale(0.7);
-    }
-
-
-    35% {
-        opacity: 1;
-
-        transform:
-            translate(-65%, -50%)
-            rotate(8deg)
-            scale(1);
-    }
-
-
-    55% {
-        transform:
-            translate(-50%, -50%)
-            rotate(3deg);
-    }
-
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(-320%, 150%)
-            rotate(40deg)
-            scale(0.85);
-    }
-
-}
-
-
-@keyframes cardFourReveal {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate(280%, 230%)
+            translate(-430%, -130%)
             rotate(-45deg)
-            scale(0.7);
-    }
-
-
-    35% {
-        opacity: 1;
-
-        transform:
-            translate(-35%, -50%)
-            rotate(-7deg)
-            scale(1);
-    }
-
-
-    55% {
-        transform:
-            translate(-50%, -50%)
-            rotate(-3deg);
-    }
-
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(290%, 160%)
-            rotate(-35deg)
-            scale(0.85);
+            scale(0.75);
     }
 
 }
