@@ -5147,6 +5147,705 @@ body.intro-active {
 
 }
 
+/* =========================================================
+   THE ICON EXPERIENCE
+   ========================================================= */
+
+.experience-section {
+    position: relative;
+    padding: 160px 6% 180px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(212, 175, 55, 0.045),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #070605 50%,
+            #030303 100%
+        );
+
+    border-top:
+        1px solid rgba(212, 175, 55, 0.08);
+}
+
+
+.experience-bg-glow {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+
+    left: 50%;
+    top: 40%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, 0.045),
+            transparent 68%
+        );
+
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+
+.experience-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.experience-heading {
+    max-width: 1000px;
+    margin-bottom: 140px;
+}
+
+
+.experience-heading h2 {
+    margin-top: 15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(62px, 8vw, 118px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -5px;
+}
+
+
+.experience-heading h2 span {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+
+.experience-heading p {
+    max-width: 620px;
+
+    margin-top: 35px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.experience-timeline {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        40px 0 120px;
+}
+
+
+/* inactive line */
+
+.experience-line {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    transform:
+        translateX(-50%);
+
+    overflow: hidden;
+
+    background:
+        rgba(212, 175, 55, 0.12);
+}
+
+
+/* animated gold line */
+
+.experience-line-progress {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 0%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #7e641e,
+            var(--gold-light),
+            #ffffff,
+            var(--gold)
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(212, 175, 55, 0.5),
+        0 0 25px
+        rgba(212, 175, 55, 0.15);
+}
+
+
+/* =========================================================
+   MOMENTS
+   ========================================================= */
+
+.experience-moment {
+    position: relative;
+
+    min-height: 520px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 120px 1fr;
+
+    align-items: center;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.9s ease,
+        transform 1s
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.experience-left {
+    transform:
+        translateX(-45px);
+}
+
+
+.experience-right {
+    transform:
+        translateX(45px);
+}
+
+
+.experience-moment.experience-visible {
+    opacity: 1;
+
+    transform:
+        translateX(0);
+}
+
+
+/* =========================================================
+   CONTENT PLACEMENT
+   ========================================================= */
+
+.experience-left
+.experience-content {
+    grid-column: 1;
+
+    text-align: right;
+
+    padding-right: 20px;
+}
+
+
+.experience-right
+.experience-content {
+    grid-column: 3;
+
+    text-align: left;
+
+    padding-left: 20px;
+}
+
+
+/* =========================================================
+   TIMELINE NODE
+   ========================================================= */
+
+.experience-node {
+    position: absolute;
+
+    z-index: 8;
+
+    left: 50%;
+    top: 50%;
+
+    width: 62px;
+    height: 62px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.75);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.32);
+
+    background:
+        #070706;
+
+    box-shadow:
+        0 0 0 10px
+        rgba(5, 5, 5, 0.85);
+
+    transition:
+        transform 0.7s ease,
+        border-color 0.7s ease,
+        box-shadow 0.7s ease;
+}
+
+
+.experience-node span {
+    color: #5d5d5d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 11px;
+
+    transition:
+        color 0.6s ease;
+}
+
+
+.experience-visible
+.experience-node {
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    border-color:
+        rgba(245, 208, 111, 0.75);
+
+    box-shadow:
+        0 0 0 10px
+        rgba(5, 5, 5, 0.85),
+
+        0 0 28px
+        rgba(212, 175, 55, 0.13);
+}
+
+
+.experience-visible
+.experience-node span {
+    color:
+        var(--gold-light);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.experience-index {
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+}
+
+
+.experience-content h3 {
+    color: #e7e7e7;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(44px, 5vw, 78px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -3px;
+}
+
+
+.experience-content h3 em {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-weight: 400;
+
+    font-style: italic;
+}
+
+
+.experience-content p {
+    max-width: 470px;
+
+    margin-top: 28px;
+
+    color: #747474;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+.experience-left
+.experience-content p {
+    margin-left: auto;
+}
+
+
+.experience-tag {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding-top: 14px;
+
+    border-top:
+        1px solid rgba(212, 175, 55, 0.22);
+
+    color: #4f4f4f;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   CLOSING
+   ========================================================= */
+
+.experience-final-node {
+    width: 78px;
+    height: 78px;
+
+    border-color:
+        rgba(212, 175, 55, 0.55);
+}
+
+
+.experience-closing.experience-visible
+.experience-final-node {
+    box-shadow:
+        0 0 0 12px
+        rgba(5, 5, 5, 0.9),
+
+        0 0 35px
+        rgba(212, 175, 55, 0.25),
+
+        0 0 90px
+        rgba(212, 175, 55, 0.07);
+}
+
+
+/* =========================================================
+   FINALE
+   ========================================================= */
+
+.experience-finale {
+    position: relative;
+
+    max-width: 1100px;
+
+    margin:
+        70px auto 0;
+
+    padding:
+        120px 20px 20px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+.experience-finale.experience-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.experience-finale-glow {
+    position: absolute;
+
+    z-index: -1;
+
+    width: 550px;
+    height: 550px;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, 0.12),
+            rgba(212, 175, 55, 0.025) 42%,
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    animation:
+        experienceFinalGlow
+        5s ease-in-out infinite;
+}
+
+
+.experience-finale-symbol {
+    width: 115px;
+
+    margin-bottom: 35px;
+
+    opacity: 0.75;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(212, 175, 55, 0.18)
+        );
+}
+
+
+.experience-finale > span {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 6px;
+}
+
+
+.experience-finale h3 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(48px, 7vw, 105px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    letter-spacing: -4px;
+}
+
+
+.experience-finale h3 strong {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-weight: 400;
+
+    font-style: italic;
+}
+
+
+.experience-finale p {
+    margin-top: 35px;
+
+    color: #4d4d4d;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes experienceFinalGlow {
+
+    0%,
+    100% {
+        opacity: 0.55;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.92);
+    }
+
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .experience-section {
+        padding:
+            110px 22px 120px;
+    }
+
+
+    .experience-heading {
+        margin-bottom: 90px;
+    }
+
+
+    .experience-heading h2 {
+        letter-spacing: -3px;
+    }
+
+
+    .experience-line {
+        left: 25px;
+    }
+
+
+    .experience-moment {
+        min-height: 420px;
+
+        display: block;
+
+        padding-left: 75px;
+    }
+
+
+    .experience-node {
+        left: 25px;
+        top: 50%;
+
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .experience-final-node {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .experience-left,
+    .experience-right {
+        transform:
+            translateX(25px);
+    }
+
+
+    .experience-left
+    .experience-content,
+    .experience-right
+    .experience-content {
+        padding: 0;
+
+        text-align: left;
+    }
+
+
+    .experience-left
+    .experience-content p {
+        margin-left: 0;
+    }
+
+
+    .experience-content h3 {
+        font-size:
+            clamp(42px, 12vw, 65px);
+    }
+
+
+    .experience-finale {
+        padding-top: 80px;
+    }
+
+
+    .experience-finale-symbol {
+        width: 85px;
+    }
+
+}
+
 
 /* =========================================================
    REDUCED MOTION
