@@ -371,3 +371,97 @@ if (experienceFinale) {
     );
 
 }
+
+/* =========================================================
+   ACTIVE NAVIGATION SECTION
+   ========================================================= */
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+const navSections = [];
+
+
+navLinks.forEach((link) => {
+
+    const href =
+        link.getAttribute("href");
+
+
+    if (
+        href &&
+        href.startsWith("#")
+    ) {
+
+        const section =
+            document.querySelector(href);
+
+
+        if (section) {
+
+            navSections.push({
+                link,
+                section
+            });
+
+        }
+
+    }
+
+});
+
+
+function updateActiveNavigation() {
+
+    const scrollPosition =
+        window.scrollY +
+        window.innerHeight * 0.35;
+
+
+    let currentSection = null;
+
+
+    navSections.forEach((item) => {
+
+        if (
+            scrollPosition >=
+            item.section.offsetTop
+        ) {
+
+            currentSection = item;
+
+        }
+
+    });
+
+
+    navLinks.forEach((link) => {
+
+        link.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    if (currentSection) {
+
+        currentSection.link.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateActiveNavigation,
+    {
+        passive: true
+    }
+);
+
+
+updateActiveNavigation();
