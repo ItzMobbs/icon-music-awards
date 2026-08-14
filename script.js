@@ -493,3 +493,61 @@ window.addEventListener(
 
 
 updateActiveNavigation();
+
+
+/* =========================================================
+   HERO BACKGROUND PARALLAX
+   ========================================================= */
+
+const heroYearBackdrop =
+    document.querySelector(".hero-year-backdrop");
+
+const heroSkyline =
+    document.querySelector(".hero-skyline");
+
+
+function updateHeroParallax() {
+
+    const scrollY =
+        window.scrollY;
+
+
+    /*
+       Only animate while near the hero.
+       No reason to keep calculating this
+       thousands of pixels down the page.
+    */
+
+    if (scrollY > window.innerHeight * 1.3) {
+        return;
+    }
+
+
+    if (heroYearBackdrop) {
+
+        heroYearBackdrop.style.translate =
+            `0 ${scrollY * 0.04}px`;
+
+    }
+
+
+    if (heroSkyline) {
+
+        heroSkyline.style.translate =
+            `0 ${scrollY * 0.09}px`;
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateHeroParallax,
+    {
+        passive: true
+    }
+);
+
+
+updateHeroParallax();
