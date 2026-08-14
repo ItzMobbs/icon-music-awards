@@ -6151,3 +6151,226 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
 }
+
+/* =========================================================
+   HERO — GIANT 2026 BACKDROP
+   ========================================================= */
+
+.hero-year-backdrop {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 3%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        heroYearReveal
+        2s ease
+        3.5s
+        forwards;
+}
+
+
+.hero-year-backdrop span {
+    color: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(220px, 29vw, 520px);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -18px;
+
+    -webkit-text-stroke:
+        1px rgba(212, 175, 55, 0.08);
+
+    text-shadow:
+        0 0 50px
+        rgba(212, 175, 55, 0.025);
+
+    user-select: none;
+}
+
+
+.year-left {
+    transform:
+        translateX(-13%);
+}
+
+
+.year-right {
+    transform:
+        translateX(13%);
+}
+
+/* =========================================================
+   HERO — LOS SANTOS SKYLINE
+   ========================================================= */
+
+.hero-skyline {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -3%;
+
+    z-index: 0;
+
+    height: 48%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        skylineReveal
+        2.2s ease
+        3.9s
+        forwards;
+}
+
+
+.hero-skyline img {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 115%;
+    min-width: 1500px;
+
+    transform:
+        translateX(-50%)
+        scale(1.03);
+
+    filter:
+        grayscale(1)
+        brightness(0.27)
+        contrast(1.3)
+        sepia(0.15);
+
+    opacity: 0.28;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0,0,0,0.7) 20%,
+            black 52%,
+            black 72%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0,0,0,0.7) 20%,
+            black 52%,
+            black 72%,
+            transparent 100%
+        );
+}
+
+
+/* dark fade around edges */
+
+.hero-skyline::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            transparent 22%,
+            transparent 78%,
+            #050505 100%
+        ),
+        linear-gradient(
+            180deg,
+            transparent 35%,
+            rgba(5,5,5,0.55) 75%,
+            #050505 100%
+        );
+
+    pointer-events: none;
+}
+
+@keyframes heroYearReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+@keyframes skylineReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 4;
+}
+
+
+.hero-stage-light,
+.hero-particles {
+    z-index: 2;
+}
+
+
+.hero-vignette {
+    z-index: 3;
+}
