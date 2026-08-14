@@ -188,3 +188,186 @@ if (hero) {
     );
 
 }
+
+/* =========================================================
+   ICON EXPERIENCE TIMELINE
+   ========================================================= */
+
+const experienceTimeline =
+    document.querySelector(".experience-timeline");
+
+const experienceProgress =
+    document.querySelector(".experience-line-progress");
+
+const experienceMoments =
+    document.querySelectorAll(".experience-moment");
+
+const experienceFinale =
+    document.querySelector(".experience-finale");
+
+
+/* =========================================================
+   MOMENT REVEALS
+   ========================================================= */
+
+if (experienceMoments.length) {
+
+    const experienceObserver =
+        new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "experience-visible"
+                        );
+
+                    } else {
+
+                        /*
+                         Remove it when it leaves so the
+                         animation can replay later.
+                        */
+
+                        entry.target.classList.remove(
+                            "experience-visible"
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.35
+            }
+
+        );
+
+
+    experienceMoments.forEach((moment) => {
+
+        experienceObserver.observe(moment);
+
+    });
+
+}
+
+
+/* =========================================================
+   GOLD LINE SCROLL PROGRESS
+   ========================================================= */
+
+function updateExperienceLine() {
+
+    if (
+        !experienceTimeline ||
+        !experienceProgress
+    ) {
+        return;
+    }
+
+
+    const rect =
+        experienceTimeline.getBoundingClientRect();
+
+
+    const windowHeight =
+        window.innerHeight;
+
+
+    /*
+     Start filling when the timeline reaches
+     roughly the middle of the screen.
+    */
+
+    const start =
+        windowHeight * 0.55;
+
+
+    const total =
+        rect.height;
+
+
+    let progress =
+        (start - rect.top) / total;
+
+
+    progress =
+        Math.max(
+            0,
+            Math.min(1, progress)
+        );
+
+
+    experienceProgress.style.height =
+        `${progress * 100}%`;
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateExperienceLine,
+    {
+        passive: true
+    }
+);
+
+
+window.addEventListener(
+    "resize",
+    updateExperienceLine
+);
+
+
+updateExperienceLine();
+
+
+/* =========================================================
+   FINALE REVEAL
+   ========================================================= */
+
+if (experienceFinale) {
+
+    const finaleObserver =
+        new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "experience-visible"
+                        );
+
+                    } else {
+
+                        entry.target.classList.remove(
+                            "experience-visible"
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.35
+            }
+
+        );
+
+
+    finaleObserver.observe(
+        experienceFinale
+    );
+
+}
