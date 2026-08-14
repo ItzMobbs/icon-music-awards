@@ -515,6 +515,393 @@ body::after {
 }
 
 /* =========================================================
+   THE SHOW
+   ========================================================= */
+
+.show-section {
+    position: relative;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 150px 7%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #090806 45%,
+            #050505 100%
+        );
+
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+
+/* Large ambient gold light */
+
+.show-glow {
+    position: absolute;
+
+    width: 900px;
+    height: 500px;
+
+    top: 30%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(212, 175, 55, 0.09),
+            transparent 65%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+}
+
+
+/* Main container */
+
+.show-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1250px;
+}
+
+
+/* =========================================================
+   SHOW HEADING
+   ========================================================= */
+
+.show-heading {
+    max-width: 850px;
+
+    margin-bottom: 90px;
+}
+
+.show-heading h2 {
+    margin-top: 12px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(55px, 8vw, 105px);
+    font-weight: 400;
+
+    line-height: 0.92;
+    letter-spacing: -4px;
+}
+
+.show-heading h2 span {
+    display: block;
+
+    color: var(--gold-light);
+
+    font-style: italic;
+}
+
+.show-heading p {
+    max-width: 620px;
+
+    margin-top: 35px;
+
+    color: #8d8d8d;
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   EVENT INFORMATION
+   ========================================================= */
+
+.show-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-top:
+        1px solid rgba(212, 175, 55, 0.25);
+
+    border-bottom:
+        1px solid rgba(212, 175, 55, 0.25);
+}
+
+
+.show-card {
+    position: relative;
+
+    min-height: 230px;
+
+    padding: 38px 35px;
+
+    border-right:
+        1px solid rgba(212, 175, 55, 0.16);
+
+    transition:
+        background 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+.show-card:last-child {
+    border-right: none;
+}
+
+
+/* Gold glow when hovering */
+
+.show-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(212, 175, 55, 0.12),
+            transparent 60%
+        );
+
+    transition: opacity 0.5s ease;
+}
+
+
+.show-card:hover::before {
+    opacity: 1;
+}
+
+
+.show-card:hover {
+    background:
+        rgba(212, 175, 55, 0.025);
+}
+
+
+/* Number */
+
+.show-number {
+    display: block;
+
+    margin-bottom: 35px;
+
+    color: #494949;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    transition: color 0.4s ease;
+}
+
+
+.show-card:hover .show-number {
+    color: var(--gold);
+}
+
+
+/* Animated line */
+
+.show-card-line {
+    width: 28px;
+    height: 1px;
+
+    margin-bottom: 25px;
+
+    background: var(--gold);
+
+    transition: width 0.5s ease;
+}
+
+
+.show-card:hover .show-card-line {
+    width: 70px;
+}
+
+
+/* Labels */
+
+.show-label {
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.show-card h3 {
+    position: relative;
+
+    color: #e9e9e9;
+
+    font-size: clamp(15px, 1.5vw, 21px);
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   HUGE YEAR
+   ========================================================= */
+
+.show-year {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 35px;
+
+    margin-top: 100px;
+}
+
+
+.show-year strong {
+    color: transparent;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(80px, 15vw, 190px);
+    font-weight: 400;
+
+    line-height: 1;
+
+    -webkit-text-stroke:
+        1px rgba(212, 175, 55, 0.35);
+
+    transition:
+        color 0.8s ease,
+        text-shadow 0.8s ease;
+}
+
+
+.show-year:hover strong {
+    color: rgba(212, 175, 55, 0.05);
+
+    text-shadow:
+        0 0 50px rgba(212, 175, 55, 0.15);
+}
+
+
+.show-year span {
+    color: #555;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+    writing-mode: vertical-rl;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* Give cards slightly different reveal timing */
+
+.show-card:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.show-card:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+
+/* =========================================================
+   SHOW MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .show-section {
+        padding:
+            110px 25px;
+    }
+
+
+    .show-heading {
+        margin-bottom: 60px;
+    }
+
+
+    .show-heading h2 {
+        letter-spacing: -2px;
+    }
+
+
+    .show-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    .show-card {
+        min-height: 190px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(212, 175, 55, 0.15);
+    }
+
+
+    .show-card:last-child {
+        border-bottom: none;
+    }
+
+
+    .show-year {
+        margin-top: 70px;
+
+        gap: 20px;
+    }
+
+}
+
+/* =========================================================
    FOOTER
    ========================================================= */
 
