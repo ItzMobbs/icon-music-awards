@@ -3096,3 +3096,897 @@ footer {
 .founder-image-caption::after {
     background: transparent !important;
 }
+
+/* =========================================================
+   ICON MUSIC AWARDS — CINEMATIC INTRO V2
+   ========================================================= */
+
+body.intro-active {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   FULL SCREEN INTRO
+   ========================================================= */
+
+.cinematic-intro {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(212, 175, 55, 0.025),
+            transparent 30%
+        ),
+        #000;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+.cinematic-intro.finished {
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   INTRO VIGNETTE
+   ========================================================= */
+
+.cinematic-vignette {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 15%,
+            rgba(0, 0, 0, 0.35) 55%,
+            rgba(0, 0, 0, 0.95) 100%
+        );
+
+    z-index: 8;
+}
+
+
+/* =========================================================
+   FLYING SYMBOL
+   ========================================================= */
+
+.cinematic-symbol {
+    position: absolute;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(245, 208, 111, 0.45)
+        )
+        drop-shadow(
+            0 0 60px
+            rgba(212, 175, 55, 0.18)
+        );
+}
+
+
+.cinematic-symbol-fly {
+    width: 135px;
+
+    top: 50%;
+    left: -220px;
+
+    z-index: 6;
+
+    opacity: 0;
+
+    transform:
+        translateY(-50%)
+        rotate(-20deg)
+        scale(0.55);
+
+    animation:
+        cinematicFly
+        1.25s
+        cubic-bezier(
+            0.65,
+            0,
+            0.35,
+            1
+        )
+        0.25s
+        forwards;
+}
+
+
+/* =========================================================
+   LIGHT STREAK
+   ========================================================= */
+
+.cinematic-streak {
+    position: absolute;
+
+    z-index: 4;
+
+    top: 50%;
+    left: -80%;
+
+    width: 75vw;
+    height: 2px;
+
+    transform:
+        translateY(-50%);
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212, 175, 55, 0.3),
+            var(--gold),
+            var(--gold-light),
+            #ffffff,
+            var(--gold-light),
+            rgba(212, 175, 55, 0.2),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(245, 208, 111, 0.8),
+        0 0 40px
+        rgba(212, 175, 55, 0.32),
+        0 0 90px
+        rgba(212, 175, 55, 0.12);
+
+    animation:
+        cinematicStreak
+        1.25s
+        ease
+        0.28s
+        forwards;
+}
+
+
+/* =========================================================
+   CENTER SYMBOL
+   ========================================================= */
+
+.cinematic-symbol-center {
+    width: 160px;
+
+    top: 50%;
+    left: 50%;
+
+    z-index: 7;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.8)
+        rotate(-8deg);
+
+    animation:
+        cinematicCenterSymbol
+        0.75s
+        cubic-bezier(
+            0.2,
+            0.75,
+            0.25,
+            1
+        )
+        1.25s
+        forwards;
+}
+
+
+/* =========================================================
+   GOLD CENTER FLARE
+   ========================================================= */
+
+.cinematic-flare {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+
+    width: 850px;
+    height: 250px;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scaleX(0.1);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 235, 160, 0.32),
+            rgba(212, 175, 55, 0.11) 35%,
+            transparent 70%
+        );
+
+    filter:
+        blur(22px);
+
+    animation:
+        cinematicFlare
+        1.1s
+        ease
+        1.35s
+        forwards;
+}
+
+
+/* =========================================================
+   IMPACT BURST
+   ========================================================= */
+
+.cinematic-burst {
+    position: absolute;
+
+    z-index: 10;
+
+    top: 50%;
+    left: 50%;
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    background: #fff;
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 255, 255, 1),
+        0 0 80px
+        rgba(245, 208, 111, 0.9),
+        0 0 180px
+        rgba(212, 175, 55, 0.5);
+
+    animation:
+        cinematicBurst
+        0.75s
+        ease
+        1.85s
+        forwards;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND UPGRADE
+   ========================================================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(212, 175, 55, 0.065),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(212, 175, 55, 0.025),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 60%,
+            rgba(212, 175, 55, 0.025),
+            transparent 30%
+        ),
+        #050505;
+}
+
+
+.hero-vignette {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 30%,
+            rgba(0, 0, 0, 0.3) 65%,
+            rgba(0, 0, 0, 0.75) 100%
+        );
+}
+
+
+/* =========================================================
+   HERO STAGE LIGHTS
+   ========================================================= */
+
+.hero-stage-light {
+    position: absolute;
+
+    top: -160px;
+
+    width: 250px;
+    height: 950px;
+
+    z-index: 1;
+
+    opacity: 0;
+
+    filter: blur(16px);
+
+    pointer-events: none;
+
+    transform-origin: top center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 226, 120, 0.18),
+            rgba(212, 175, 55, 0.06) 45%,
+            transparent 82%
+        );
+
+    animation:
+        stageLightReveal
+        2s
+        ease
+        3.15s
+        forwards;
+}
+
+
+.stage-light-left {
+    left: 28%;
+
+    transform:
+        rotate(17deg);
+}
+
+
+.stage-light-right {
+    right: 28%;
+
+    transform:
+        rotate(-17deg);
+}
+
+
+/* =========================================================
+   HERO PARTICLES
+   ========================================================= */
+
+.hero-particles {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.gold-particle {
+    position: absolute;
+
+    bottom: -20px;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    background:
+        rgba(245, 208, 111, 0.7);
+
+    box-shadow:
+        0 0 7px
+        rgba(245, 208, 111, 0.5);
+
+    animation:
+        goldParticleFloat
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   MAIN LOGO REVEAL
+   ========================================================= */
+
+.hero-logo-cinematic {
+    opacity: 0;
+
+    transform:
+        translateY(16px)
+        scale(0.91);
+
+    filter:
+        brightness(0.25)
+        blur(12px)
+        drop-shadow(
+            0 0 0
+            transparent
+        );
+
+    animation:
+        cinematicHeroLogo
+        1.45s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        )
+        2.85s
+        forwards,
+        cinematicHeroFloat
+        6s
+        ease-in-out
+        4.7s
+        infinite;
+}
+
+
+/* =========================================================
+   SEQUENTIAL HERO REVEAL
+   ========================================================= */
+
+.cinematic-reveal {
+    opacity: 0 !important;
+
+    transform:
+        translateY(18px);
+}
+
+
+.reveal-one {
+    animation:
+        cinematicTextReveal
+        0.8s
+        ease
+        2.8s
+        forwards !important;
+}
+
+
+.reveal-two {
+    animation:
+        cinematicTextReveal
+        0.8s
+        ease
+        3.75s
+        forwards !important;
+}
+
+
+.reveal-three {
+    animation:
+        cinematicTextReveal
+        0.8s
+        ease
+        3.95s
+        forwards !important;
+}
+
+
+.reveal-four {
+    animation:
+        cinematicTextReveal
+        0.8s
+        ease
+        4.15s
+        forwards !important;
+}
+
+
+.reveal-five {
+    animation:
+        cinematicTextReveal
+        0.8s
+        ease
+        4.35s
+        forwards !important;
+}
+
+
+/* =========================================================
+   SLIGHTLY LARGER MAIN LOGO
+   ========================================================= */
+
+.hero-logo {
+    width:
+        min(1020px, 93vw);
+}
+
+
+/* =========================================================
+   CINEMATIC ANIMATIONS
+   ========================================================= */
+
+@keyframes cinematicFly {
+
+    0% {
+        left: -220px;
+
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            rotate(-25deg)
+            scale(0.5);
+    }
+
+
+    12% {
+        opacity: 1;
+    }
+
+
+    55% {
+        transform:
+            translateY(-50%)
+            rotate(3deg)
+            scale(1.12);
+    }
+
+
+    85% {
+        opacity: 1;
+    }
+
+
+    100% {
+        left:
+            calc(100% + 220px);
+
+        opacity: 0;
+
+        transform:
+            translateY(-50%)
+            rotate(18deg)
+            scale(0.72);
+    }
+
+}
+
+
+@keyframes cinematicStreak {
+
+    0% {
+        left: -80%;
+
+        opacity: 0;
+    }
+
+
+    15% {
+        opacity: 1;
+    }
+
+
+    75% {
+        opacity: 1;
+    }
+
+
+    100% {
+        left: 120%;
+
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes cinematicCenterSymbol {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.8)
+            rotate(-8deg);
+    }
+
+
+    50% {
+        opacity: 1;
+    }
+
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1)
+            rotate(0deg);
+    }
+
+}
+
+
+@keyframes cinematicFlare {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scaleX(0.1);
+    }
+
+
+    45% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scaleX(1);
+    }
+
+
+    100% {
+        opacity: 0.35;
+
+        transform:
+            translate(-50%, -50%)
+            scaleX(0.8);
+    }
+
+}
+
+
+@keyframes cinematicBurst {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+
+    25% {
+        opacity: 1;
+    }
+
+
+    55% {
+        opacity: 0.95;
+
+        transform:
+            translate(-50%, -50%)
+            scale(8);
+    }
+
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(18);
+    }
+
+}
+
+
+@keyframes cinematicHeroLogo {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(16px)
+            scale(0.91);
+
+        filter:
+            brightness(0.25)
+            blur(12px);
+    }
+
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            brightness(1)
+            blur(0)
+            drop-shadow(
+                0 0 22px
+                rgba(212, 175, 55, 0.12)
+            );
+    }
+
+}
+
+
+@keyframes cinematicHeroFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+
+    50% {
+        transform:
+            translateY(-7px)
+            scale(1.003);
+    }
+
+}
+
+
+@keyframes cinematicTextReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes stageLightReveal {
+
+    from {
+        opacity: 0;
+    }
+
+
+    to {
+        opacity: 0.65;
+    }
+
+}
+
+
+@keyframes goldParticleFloat {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            scale(0.5);
+    }
+
+
+    15% {
+        opacity: 0.45;
+    }
+
+
+    70% {
+        opacity: 0.2;
+    }
+
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-105vh)
+            scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE CINEMATIC
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .cinematic-symbol-fly {
+        width: 100px;
+    }
+
+
+    .cinematic-symbol-center {
+        width: 125px;
+    }
+
+
+    .hero-stage-light {
+        width: 150px;
+
+        height: 700px;
+    }
+
+
+    .stage-light-left {
+        left: 18%;
+    }
+
+
+    .stage-light-right {
+        right: 18%;
+    }
+
+
+    .hero-logo {
+        width: 96vw;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cinematic-intro {
+        display: none;
+    }
+
+
+    .hero-logo-cinematic,
+    .cinematic-reveal {
+        opacity: 1 !important;
+
+        transform: none !important;
+
+        animation: none !important;
+    }
+
+}
