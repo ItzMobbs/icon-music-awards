@@ -6064,29 +6064,25 @@ body.intro-active {
     position: absolute;
 
     left: 50%;
-    bottom: 18px;
+    bottom: 16px;
 
     width: 0;
     height: 1px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold-light),
-            transparent
-        );
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold-light),
+        transparent
+    );
 
     box-shadow:
-        0 0 8px
-        rgba(212, 175, 55, 0.3);
+        0 0 8px rgba(212, 175, 55, 0.3);
 
     transition:
-        width 0.4s
-        cubic-bezier(0.16, 1, 0.3, 1);
+        width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
@@ -6101,7 +6097,7 @@ body.intro-active {
 
 
 .nav-link.active::after {
-    width: 100%;
+    width: 72%;
 }
 
 
