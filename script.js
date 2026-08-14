@@ -64,24 +64,52 @@ revealElements.forEach((element) => {
 
 
 /* =========================================================
-   CINEMATIC INTRO
+   CINEMATIC INTRO — SAFE VERSION
    ========================================================= */
 
 const cinematicIntro =
     document.getElementById("cinematic-intro");
 
 
-document.body.classList.add("intro-active");
+if (cinematicIntro) {
+
+    document.body.classList.add("intro-active");
 
 
-setTimeout(() => {
+    const finishIntro = () => {
 
-    cinematicIntro.classList.add("finished");
+        cinematicIntro.classList.add("finished");
 
-    document.body.classList.remove("intro-active");
+        document.body.classList.remove("intro-active");
 
-}, 3650);
+    };
 
+
+    /* Normal cinematic ending */
+
+    setTimeout(() => {
+
+        finishIntro();
+
+    }, 3650);
+
+
+    /*
+       HARD FAIL-SAFE
+
+       Even if the CSS animation bugs out,
+       completely remove the intro after 5 seconds.
+    */
+
+    setTimeout(() => {
+
+        cinematicIntro.style.display = "none";
+
+        document.body.classList.remove("intro-active");
+
+    }, 5000);
+
+}
 
 /* =========================================================
    GOLD HERO PARTICLES
